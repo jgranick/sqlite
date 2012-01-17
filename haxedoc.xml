@@ -1,0 +1,1539 @@
+<haxe>
+	<enum path="Void" params="" file="C:\Motion-Twin\haxe/std/StdTypes.hx" module="StdTypes"><haxe_doc>
+	The standard Void type. Only [null] values can be of the type [Void].
+</haxe_doc></enum>
+	<class path="Float" params="" file="C:\Motion-Twin\haxe/std/StdTypes.hx" module="StdTypes" extern="1"><haxe_doc>
+	The standard Float type, this is a double-precision IEEE 64bit float.
+</haxe_doc></class>
+	<class path="Int" params="" file="C:\Motion-Twin\haxe/std/StdTypes.hx" module="StdTypes" extern="1">
+		<extends path="Float"/>
+		<haxe_doc>
+	The standard Int type. Its precision depends on the platform.
+</haxe_doc>
+	</class>
+	<typedef path="Null" params="T" file="C:\Motion-Twin\haxe/std/StdTypes.hx" module="StdTypes">
+		<c path="Null.T"/>
+		<haxe_doc>
+	[Null] can be useful in two cases. In order to document some methods
+	that accepts or can return a [null] value, or for the Flash9 compiler and AS3
+	generator to distinguish between base values that can be null and others that
+	can't.
+</haxe_doc>
+	</typedef>
+	<enum path="Bool" params="" file="C:\Motion-Twin\haxe/std/StdTypes.hx" module="StdTypes">
+		<true/>
+		<false/>
+		<haxe_doc>
+	The standard Boolean type is represented as an enum with two choices.
+</haxe_doc>
+	</enum>
+	<class path="Dynamic" params="T" file="C:\Motion-Twin\haxe/std/StdTypes.hx" module="StdTypes" extern="1"><haxe_doc>
+	Dynamic is an internal compiler type which has special behavior.
+	See the haXe language reference for more informations.
+</haxe_doc></class>
+	<typedef path="Iterator" params="T" file="C:\Motion-Twin\haxe/std/StdTypes.hx" module="StdTypes">
+		<a>
+			<next set="method"><f a=""><c path="Iterator.T"/></f></next>
+			<hasNext set="method"><f a=""><e path="Bool"/></f></hasNext>
+		</a>
+		<haxe_doc>
+	An Iterator is a structure that permits to list a given container
+	values. It can be used by your own data structures. See the haXe
+	documentation for more informations.
+</haxe_doc>
+	</typedef>
+	<typedef path="Iterable" params="T" file="C:\Motion-Twin\haxe/std/StdTypes.hx" module="StdTypes">
+		<a><iterator set="method"><f a=""><t path="Iterator"><c path="Iterable.T"/></t></f></iterator></a>
+		<haxe_doc>
+	An Iterable is a data structure which has an iterator() method.
+	See [Lambda] for generic functions on iterable structures.
+</haxe_doc>
+	</typedef>
+	<class path="ArrayAccess" params="T" file="C:\Motion-Twin\haxe/std/StdTypes.hx" module="StdTypes" extern="1" interface="1"><haxe_doc>
+	ArrayAccess is used to indicate a class that can be accessed using brackets.
+	The type parameter represent the type of the elements stored.
+</haxe_doc></class>
+	<enum path="ValueType" params="" file="C:\Motion-Twin\haxe/std/cpp/_std/Type.hx" module="Type">
+		<TUnknown/>
+		<TObject/>
+		<TNull/>
+		<TInt/>
+		<TFunction/>
+		<TFloat/>
+		<TEnum a="e"><c path="Enum"><d/></c></TEnum>
+		<TClass a="c"><c path="Class"><d/></c></TClass>
+		<TBool/>
+	</enum>
+	<class path="Type" params="" file="C:\Motion-Twin\haxe/std/cpp/_std/Type.hx">
+		<getClass public="1" params="T" set="method" line="39" static="1">
+			<f a="o">
+				<c path="getClass.T"/>
+				<c path="Class"><c path="getClass.T"/></c>
+			</f>
+			<haxe_doc>
+		Returns the class of a value or [null] if this value is not a Class instance.
+	</haxe_doc>
+		</getClass>
+		<getEnum public="1" set="method" line="50" static="1">
+			<f a="o">
+				<d/>
+				<c path="Enum"><d/></c>
+			</f>
+			<haxe_doc>
+		Returns the enum of a value or [null] if this value is not an Enum instance.
+	</haxe_doc>
+		</getEnum>
+		<getSuperClass public="1" set="method" line="56" static="1">
+			<f a="c">
+				<c path="Class"><d/></c>
+				<c path="Class"><d/></c>
+			</f>
+			<haxe_doc>
+		Returns the super-class of a class, or null if no super class.
+	</haxe_doc>
+		</getSuperClass>
+		<getClassName public="1" set="method" line="60" static="1">
+			<f a="c">
+				<c path="Class"><d/></c>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Returns the complete name of a class.
+	</haxe_doc>
+		</getClassName>
+		<getEnumName public="1" set="method" line="66" static="1">
+			<f a="e">
+				<c path="Enum"><d/></c>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Returns the complete name of an enum.
+	</haxe_doc>
+		</getEnumName>
+		<resolveClass public="1" set="method" line="70" static="1">
+			<f a="name">
+				<c path="String"/>
+				<c path="Class"><d/></c>
+			</f>
+			<haxe_doc>
+		Evaluates a class from a name. The class must have been compiled
+		to be accessible.
+	</haxe_doc>
+		</resolveClass>
+		<resolveEnum public="1" set="method" line="77" static="1">
+			<f a="name">
+				<c path="String"/>
+				<c path="Enum"><d/></c>
+			</f>
+			<haxe_doc>
+		Evaluates an enum from a name. The enum must have been compiled
+		to be accessible.
+	</haxe_doc>
+		</resolveEnum>
+		<createInstance public="1" params="T" set="method" line="84" static="1">
+			<f a="cl:args">
+				<c path="Class"><c path="createInstance.T"/></c>
+				<c path="Array"><d/></c>
+				<c path="createInstance.T"/>
+			</f>
+			<haxe_doc>
+		Creates an instance of the given class with the list of constructor arguments.
+	</haxe_doc>
+		</createInstance>
+		<createEmptyInstance public="1" params="T" set="method" line="90" static="1">
+			<f a="cl">
+				<c path="Class"><c path="createEmptyInstance.T"/></c>
+				<c path="createEmptyInstance.T"/>
+			</f>
+			<haxe_doc>
+		Similar to [Reflect.createInstance] excepts that the constructor is not called.
+		This enables you to create an instance without any side-effect.
+	</haxe_doc>
+		</createEmptyInstance>
+		<createEnum public="1" params="T" set="method" line="94" static="1">
+			<f a="e:constr:?params">
+				<c path="Enum"><c path="createEnum.T"/></c>
+				<c path="String"/>
+				<c path="Array"><d/></c>
+				<c path="createEnum.T"/>
+			</f>
+			<haxe_doc>
+		Create an instance of an enum by using a constructor name and parameters.
+	</haxe_doc>
+		</createEnum>
+		<createEnumIndex public="1" params="T" set="method" line="100" static="1">
+			<f a="e:index:?params">
+				<c path="Enum"><c path="createEnumIndex.T"/></c>
+				<c path="Int"/>
+				<c path="Array"><d/></c>
+				<c path="createEnumIndex.T"/>
+			</f>
+			<haxe_doc>
+		Create an instance of an enum by using a constructor index and parameters.
+	</haxe_doc>
+		</createEnumIndex>
+		<getInstanceFields public="1" set="method" line="106" static="1">
+			<f a="c">
+				<c path="Class"><d/></c>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>
+		Returns the list of instance fields.
+	</haxe_doc>
+		</getInstanceFields>
+		<getClassFields public="1" set="method" line="110" static="1">
+			<f a="c">
+				<c path="Class"><d/></c>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>
+		Returns the list of a class static fields.
+	</haxe_doc>
+		</getClassFields>
+		<getEnumConstructs public="1" set="method" line="114" static="1">
+			<f a="e">
+				<c path="Enum"><d/></c>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>
+		Returns all the available constructor names for an enum.
+	</haxe_doc>
+		</getEnumConstructs>
+		<typeof public="1" set="method" line="118" static="1">
+			<f a="v">
+				<d/>
+				<e path="ValueType"/>
+			</f>
+			<haxe_doc>
+		Returns the runtime type of a value.
+	</haxe_doc>
+		</typeof>
+		<enumEq public="1" params="T" set="method" line="134" static="1">
+			<f a="a:b">
+				<c path="enumEq.T"/>
+				<c path="enumEq.T"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Recursively compare two enums constructors and parameters.
+	</haxe_doc>
+		</enumEq>
+		<enumConstructor public="1" set="method" line="138" static="1">
+			<f a="e">
+				<d/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Returns the constructor of an enum
+	</haxe_doc>
+		</enumConstructor>
+		<enumParameters public="1" set="method" line="142" static="1">
+			<f a="e">
+				<d/>
+				<c path="Array"><d/></c>
+			</f>
+			<haxe_doc>
+		Returns the parameters of an enum
+	</haxe_doc>
+		</enumParameters>
+		<enumIndex public="1" get="inline" set="null" line="147" static="1">
+			<f a="e">
+				<d/>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>
+		Returns the index of the constructor of an enum
+	</haxe_doc>
+		</enumIndex>
+		<haxe_doc>
+	The haXe Reflection API enables you to retreive informations about any value,
+	Classes and Enums at runtime.
+</haxe_doc>
+	</class>
+	<typedef path="haxe.db.Transaction" params="" file="../haxe/db/Transaction.hx"><c path="cpp.db.Transaction"/></typedef>
+	<class path="String" params="" file="C:\Motion-Twin\haxe/std/String.hx" extern="1">
+		<fromCharCode public="1" set="method" static="1"><f a="code">
+	<c path="Int"/>
+	<c path="String"/>
+</f></fromCharCode>
+		<length public="1" set="null">
+			<c path="Int"/>
+			<haxe_doc>
+		The number of characters in the String.
+	</haxe_doc>
+		</length>
+		<toUpperCase public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns an String where all characters have been uppercased.
+	</haxe_doc>
+		</toUpperCase>
+		<toLowerCase public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns an String where all characters have been lowercased.
+	</haxe_doc>
+		</toLowerCase>
+		<charAt public="1" set="method">
+			<f a="index">
+				<c path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Returns the character at the given position.
+		Returns the empty String if outside of String bounds.
+	</haxe_doc>
+		</charAt>
+		<charCodeAt public="1" set="method">
+			<f a="index">
+				<c path="Int"/>
+				<t path="Null"><c path="Int"/></t>
+			</f>
+			<haxe_doc>
+		Returns the character code at the given position.
+		Returns [null] if outside of String bounds.
+	</haxe_doc>
+		</charCodeAt>
+		<indexOf public="1" set="method">
+			<f a="str:?startIndex">
+				<c path="String"/>
+				<c path="Int"/>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>
+		Returns the index of first occurence of [value]
+		Returns [1-1] if [value] is not found.
+		The optional [startIndex] parameter allows you to specify at which character to start searching.
+		The position returned is still relative to the beginning of the string.
+	</haxe_doc>
+		</indexOf>
+		<lastIndexOf public="1" set="method">
+			<f a="str:?startIndex">
+				<c path="String"/>
+				<c path="Int"/>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>
+		Similar to [indexOf] but returns the latest index.
+	</haxe_doc>
+		</lastIndexOf>
+		<split public="1" set="method">
+			<f a="delimiter">
+				<c path="String"/>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>
+		Split the string using the specified delimiter.
+	</haxe_doc>
+		</split>
+		<substr public="1" set="method">
+			<f a="pos:?len">
+				<c path="Int"/>
+				<c path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Returns a part of the String, taking [len] characters starting from [pos].
+		If [len] is not specified, it takes all the remaining characters.
+	</haxe_doc>
+		</substr>
+		<toString public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns the String itself.
+	</haxe_doc>
+		</toString>
+		<new public="1" set="method">
+			<f a="string">
+				<c path="String"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Creates a copy from a given String.
+	</haxe_doc>
+		</new>
+		<haxe_doc>
+	The basic String class.
+</haxe_doc>
+	</class>
+	<class path="cpp.db.Connection" params="" file="../cpp/db/Connection.hx" interface="1">
+		<request public="1" set="method"><f a="s">
+	<c path="String"/>
+	<c path="cpp.db.ResultSet"/>
+</f></request>
+		<close public="1" set="method"><f a=""><e path="Void"/></f></close>
+		<escape public="1" set="method"><f a="s">
+	<c path="String"/>
+	<c path="String"/>
+</f></escape>
+		<quote public="1" set="method"><f a="s">
+	<c path="String"/>
+	<c path="String"/>
+</f></quote>
+		<addValue public="1" set="method"><f a="s:v">
+	<c path="StringBuf"/>
+	<d/>
+	<e path="Void"/>
+</f></addValue>
+		<lastInsertId public="1" set="method"><f a=""><c path="Int"/></f></lastInsertId>
+		<dbName public="1" set="method"><f a=""><c path="String"/></f></dbName>
+		<startTransaction public="1" set="method"><f a=""><e path="Void"/></f></startTransaction>
+		<commit public="1" set="method"><f a=""><e path="Void"/></f></commit>
+		<rollback public="1" set="method"><f a=""><e path="Void"/></f></rollback>
+	</class>
+	<class path="Std" params="" file="C:\Motion-Twin\haxe/std/cpp/_std/Std.hx">
+		<is public="1" set="method" line="27" static="1">
+			<f a="v:t">
+				<d/>
+				<d/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if a value v is of the type t.
+	</haxe_doc>
+		</is>
+		<string public="1" set="method" line="31" static="1">
+			<f a="s">
+				<d/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Convert any value to a String
+	</haxe_doc>
+		</string>
+		<int public="1" set="method" line="35" static="1">
+			<f a="x">
+				<c path="Float"/>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>
+		Convert a Float to an Int, rounded down.
+	</haxe_doc>
+		</int>
+		<parseInt public="1" set="method" line="39" static="1">
+			<f a="x">
+				<c path="String"/>
+				<t path="Null"><c path="Int"/></t>
+			</f>
+			<haxe_doc>
+		Convert a String to an Int, parsing different possible representations. Returns [null] if could not be parsed.
+	</haxe_doc>
+		</parseInt>
+		<parseFloat public="1" set="method" line="43" static="1">
+			<f a="x">
+				<c path="String"/>
+				<c path="Float"/>
+			</f>
+			<haxe_doc>
+		Convert a String to a Float, parsing different possible reprensations.
+	</haxe_doc>
+		</parseFloat>
+		<random public="1" set="method" line="47" static="1">
+			<f a="x">
+				<c path="Int"/>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>
+		Return a random integer between 0 included and x excluded.
+	</haxe_doc>
+		</random>
+		<haxe_doc>
+	The Std class provides standard methods for manipulating basic types.
+</haxe_doc>
+	</class>
+	<typedef path="haxe.db.Object" params="" file="../haxe/db/Object.hx"><c path="cpp.db.Object"/></typedef>
+	<class path="cpp.db.ResultSet" params="" file="../cpp/db/ResultSet.hx" interface="1">
+		<length public="1" get="getLength" set="null"><c path="Int"/></length>
+		<nfields public="1" get="getNFields" set="null"><c path="Int"/></nfields>
+		<hasNext public="1" set="method"><f a=""><e path="Bool"/></f></hasNext>
+		<next public="1" set="method"><f a=""><d/></f></next>
+		<results public="1" set="method"><f a=""><c path="List"><d/></c></f></results>
+		<getResult public="1" set="method"><f a="n">
+	<c path="Int"/>
+	<c path="String"/>
+</f></getResult>
+		<getIntResult public="1" set="method"><f a="n">
+	<c path="Int"/>
+	<c path="Int"/>
+</f></getIntResult>
+		<getFloatResult public="1" set="method"><f a="n">
+	<c path="Int"/>
+	<c path="Float"/>
+</f></getFloatResult>
+	</class>
+	<class path="cpp.Lib" params="" file="C:\Motion-Twin\haxe/std/cpp/Lib.hx">
+		<load public="1" set="method" line="32" static="1">
+			<f a="lib:prim:nargs">
+				<c path="String"/>
+				<c path="String"/>
+				<c path="Int"/>
+				<d/>
+			</f>
+			<haxe_doc>
+		Load and return a Cpp primitive from a DLL library.
+	</haxe_doc>
+		</load>
+		<loadLazy public="1" set="method" line="44" static="1">
+			<f a="lib:prim:nargs">
+				<unknown/>
+				<unknown/>
+				<c path="Int"/>
+				<d/>
+			</f>
+			<haxe_doc>
+		Tries to load, and always returns a valid function, but the function may throw
+		if called.
+	</haxe_doc>
+		</loadLazy>
+		<rethrow public="1" set="method" line="59" static="1"><f a="inExp">
+	<d/>
+	<e path="Void"/>
+</f></rethrow>
+		<stringReference public="1" set="method" line="61" static="1"><f a="inExp">
+	<d/>
+	<e path="Void"/>
+</f></stringReference>
+		<print public="1" set="method" line="66" static="1">
+			<f a="v">
+				<d/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Print the specified value on the default output.
+	</haxe_doc>
+		</print>
+		<haxeToNeko public="1" set="method" line="74" static="1">
+			<f a="v">
+				<d/>
+				<d/>
+			</f>
+			<haxe_doc>
+		This function is used to make porting from neko to cpp easy.
+		It does not need to do anything because the c-code can work with any Dynamic
+	</haxe_doc>
+		</haxeToNeko>
+		<nekoToHaxe public="1" set="method" line="82" static="1">
+			<f a="v">
+				<d/>
+				<d/>
+			</f>
+			<haxe_doc>
+		This function is used to make porting from neko to cpp easy.
+		It does not need to do anything because the c-code can work with any Dynamic
+	</haxe_doc>
+		</nekoToHaxe>
+		<println public="1" set="method" line="88" static="1">
+			<f a="v">
+				<d/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Print the specified value on the default output followed by a newline character.
+	</haxe_doc>
+		</println>
+	</class>
+	<class path="cpp.db._Sqlite.SqliteConnection" params="" file="../cpp/db/Sqlite.hx" private="1" module="cpp.db.Sqlite">
+		<implements path="cpp.db.Connection"/>
+		<_encode line="98" static="1"><f a=":">
+	<c path="String"/>
+	<c path="String"/>
+	<c path="String"/>
+</f></_encode>
+		<_connect line="99" static="1"><f a="">
+	<c path="String"/>
+	<unknown/>
+</f></_connect>
+		<_close line="100" static="1"><f a="">
+	<d/>
+	<unknown/>
+</f></_close>
+		<_request line="101" static="1"><f a=":">
+	<d/>
+	<c path="String"/>
+	<unknown/>
+</f></_request>
+		<_last_id line="102" static="1"><f a="">
+	<d/>
+	<c path="Int"/>
+</f></_last_id>
+		<c><d/></c>
+		<close public="1" set="method" line="37"><f a=""><e path="Void"/></f></close>
+		<request public="1" set="method" line="41"><f a="s">
+	<c path="String"/>
+	<c path="cpp.db.ResultSet"/>
+</f></request>
+		<escape public="1" set="method" line="49"><f a="s">
+	<c path="String"/>
+	<c path="String"/>
+</f></escape>
+		<quote public="1" set="method" line="53"><f a="s">
+	<c path="String"/>
+	<c path="String"/>
+</f></quote>
+		<addValue public="1" set="method" line="59"><f a="s:v">
+	<c path="StringBuf"/>
+	<d/>
+	<e path="Void"/>
+</f></addValue>
+		<lastInsertId public="1" set="method" line="76"><f a=""><c path="Int"/></f></lastInsertId>
+		<dbName public="1" set="method" line="80"><f a=""><c path="String"/></f></dbName>
+		<startTransaction public="1" set="method" line="84"><f a=""><e path="Void"/></f></startTransaction>
+		<commit public="1" set="method" line="88"><f a=""><e path="Void"/></f></commit>
+		<rollback public="1" set="method" line="93"><f a=""><e path="Void"/></f></rollback>
+		<new public="1" set="method" line="33"><f a="file">
+	<c path="String"/>
+	<e path="Void"/>
+</f></new>
+	</class>
+	<class path="cpp.db._Sqlite.SqliteResultSet" params="" file="../cpp/db/Sqlite.hx" private="1" module="cpp.db.Sqlite">
+		<implements path="cpp.db.ResultSet"/>
+		<result_next line="217" static="1"><f a="">
+	<d/>
+	<unknown/>
+</f></result_next>
+		<result_get_length line="218" static="1"><f a="">
+	<d/>
+	<c path="Int"/>
+</f></result_get_length>
+		<result_get_nfields line="219" static="1"><f a="">
+	<d/>
+	<c path="Int"/>
+</f></result_get_nfields>
+		<result_get line="220" static="1"><f a=":">
+	<d/>
+	<c path="Int"/>
+	<c path="String"/>
+</f></result_get>
+		<result_get_int line="221" static="1"><f a=":">
+	<d/>
+	<c path="Int"/>
+	<c path="Int"/>
+</f></result_get_int>
+		<result_get_float line="222" static="1"><f a=":">
+	<d/>
+	<c path="Int"/>
+	<c path="Float"/>
+</f></result_get_float>
+		<length public="1" get="getLength" set="null"><c path="Int"/></length>
+		<nfields public="1" get="getNFields" set="null"><c path="Int"/></nfields>
+		<r><d/></r>
+		<cache><c path="List"><d/></c></cache>
+		<getLength set="method" line="119"><f a=""><c path="Int"/></f></getLength>
+		<getNFields set="method" line="132"><f a=""><c path="Int"/></f></getNFields>
+		<hasNext public="1" set="method" line="136"><f a=""><e path="Bool"/></f></hasNext>
+		<next public="1" set="method" line="144"><f a=""><d/></f></next>
+		<doNext set="method" line="151"><f a=""><d/></f></doNext>
+		<results public="1" set="method" line="194"><f a=""><c path="List"><d/></c></f></results>
+		<getResult public="1" set="method" line="205"><f a="n">
+	<c path="Int"/>
+	<c path="String"/>
+</f></getResult>
+		<getIntResult public="1" set="method" line="209"><f a="n">
+	<c path="Int"/>
+	<c path="Int"/>
+</f></getIntResult>
+		<getFloatResult public="1" set="method" line="213"><f a="n">
+	<c path="Int"/>
+	<c path="Float"/>
+</f></getFloatResult>
+		<new public="1" set="method" line="113"><f a="r">
+	<unknown/>
+	<e path="Void"/>
+</f></new>
+	</class>
+	<class path="cpp.db.Sqlite" params="" file="../cpp/db/Sqlite.hx"><open public="1" set="method" line="228" static="1"><f a="file">
+	<c path="String"/>
+	<c path="cpp.db.Connection"/>
+</f></open></class>
+	<typedef path="haxe.db.ResultSet" params="" file="../haxe/db/ResultSet.hx"><c path="cpp.db.ResultSet"/></typedef>
+	<class path="Enum" params="T" file="C:\Motion-Twin\haxe/std/Enum.hx" extern="1"><haxe_doc>
+	An abstract type that represents an Enum.
+	See [Type] for the haXe Reflection API.
+</haxe_doc></class>
+	<typedef path="haxe.db.Sqlite" params="" file="../haxe/db/Sqlite.hx"><c path="cpp.db.Sqlite"/></typedef>
+	<class path="cpp.db.Transaction" params="" file="../cpp/db/Transaction.hx">
+		<isDeadlock public="1" set="method" line="31" static="1"><f a="e">
+	<d/>
+	<e path="Bool"/>
+</f></isDeadlock>
+		<runMainLoop set="method" line="35" static="1"><f a="mainFun:logError:count">
+	<f a=""><e path="Void"/></f>
+	<f a="">
+		<d/>
+		<e path="Void"/>
+	</f>
+	<c path="Int"/>
+	<e path="Void"/>
+</f></runMainLoop>
+		<main public="1" set="method" line="54" static="1"><f a="cnx:mainFun:logError">
+	<c path="cpp.db.Connection"/>
+	<f a=""><e path="Void"/></f>
+	<f a="">
+		<d/>
+		<e path="Void"/>
+	</f>
+	<e path="Void"/>
+</f></main>
+	</class>
+	<class path="Hash" params="T" file="C:\Motion-Twin\haxe/std/cpp/_std/Hash.hx">
+		<__Internal><d/></__Internal>
+		<set public="1" set="method" line="33">
+			<f a="key:value">
+				<c path="String"/>
+				<c path="Hash.T"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Set a value for the given key.
+	</haxe_doc>
+		</set>
+		<get public="1" set="method" line="37">
+			<f a="key">
+				<c path="String"/>
+				<t path="Null"><c path="Hash.T"/></t>
+			</f>
+			<haxe_doc>
+		Get a value for the given key.
+	</haxe_doc>
+		</get>
+		<exists public="1" set="method" line="41">
+			<f a="key">
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if a value exists for the given key.
+		In particular, it's useful to tells if a key has
+		a [null] value versus no value.
+	</haxe_doc>
+		</exists>
+		<remove public="1" set="method" line="45">
+			<f a="key">
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Removes a hashtable entry. Returns [true] if
+		there was such entry.
+	</haxe_doc>
+		</remove>
+		<keys public="1" set="method" line="52">
+			<f a=""><t path="Iterator"><c path="String"/></t></f>
+			<haxe_doc>
+		Returns an iterator of all keys in the hashtable.
+	</haxe_doc>
+		</keys>
+		<iterator public="1" set="method" line="61">
+			<f a=""><t path="Iterator"><c path="Hash.T"/></t></f>
+			<haxe_doc>
+		Returns an iterator of all values in the hashtable.
+	</haxe_doc>
+		</iterator>
+		<toString public="1" set="method" line="76">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns an displayable representation of the hashtable content.
+	</haxe_doc>
+		</toString>
+		<new public="1" set="method" line="29"><f a=""><e path="Void"/></f></new>
+		<haxe_doc>
+	Hashtable over a set of elements, using [String] as keys.
+	Other kind of keys are not possible on all platforms since they
+	can't always be implemented efficiently.
+</haxe_doc>
+	</class>
+	<class path="cpp.db.Object" params="" file="../cpp/db/Object.hx">
+		<local_manager><a>
+	<objectToString set="method"><f a="o">
+	<c path="cpp.db.Object"/>
+	<c path="String"/>
+</f></objectToString>
+	<doUpdate set="method"><f a="o">
+	<c path="cpp.db.Object"/>
+	<e path="Void"/>
+</f></doUpdate>
+	<doSync set="method"><f a="o">
+	<c path="cpp.db.Object"/>
+	<e path="Void"/>
+</f></doSync>
+	<doInsert set="method"><f a="o">
+	<c path="cpp.db.Object"/>
+	<e path="Void"/>
+</f></doInsert>
+	<doDelete set="method"><f a="o">
+	<c path="cpp.db.Object"/>
+	<e path="Void"/>
+</f></doDelete>
+</a></local_manager>
+		<insert public="1" set="method" line="57"><f a=""><e path="Void"/></f></insert>
+		<update public="1" set="dynamic" line="61"><f a=""><e path="Void"/></f></update>
+		<sync public="1" set="method" line="65"><f a=""><e path="Void"/></f></sync>
+		<delete public="1" set="method" line="69"><f a=""><e path="Void"/></f></delete>
+		<toString public="1" set="method" line="73"><f a=""><c path="String"/></f></toString>
+		<new public="1" set="method" line="54"><f a=""><e path="Void"/></f></new>
+		<haxe_doc>
+	SPOD Object : the persistent object base type. See the tutorial on haXe
+	website to learn how to use SPOD.
+</haxe_doc>
+	</class>
+	<class path="List" params="T" file="C:\Motion-Twin\haxe/std/List.hx">
+		<h><c path="Array"><d/></c></h>
+		<q><c path="Array"><d/></c></q>
+		<length public="1" set="null">
+			<c path="Int"/>
+			<haxe_doc>
+		The number of elements in this list.
+	</haxe_doc>
+		</length>
+		<add public="1" set="method" line="51">
+			<f a="item">
+				<c path="List.T"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Add an element at the end of the list.
+	</haxe_doc>
+		</add>
+		<push public="1" set="method" line="64">
+			<f a="item">
+				<c path="List.T"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Push an element at the beginning of the list.
+	</haxe_doc>
+		</push>
+		<first public="1" set="method" line="80">
+			<f a=""><c path="List.T"/></f>
+			<haxe_doc>
+		Returns the first element of the list, or null
+		if the list is empty.
+	</haxe_doc>
+		</first>
+		<last public="1" set="method" line="88">
+			<f a=""><c path="List.T"/></f>
+			<haxe_doc>
+		Returns the last element of the list, or null
+		if the list is empty.
+	</haxe_doc>
+		</last>
+		<pop public="1" set="method" line="98">
+			<f a=""><c path="List.T"/></f>
+			<haxe_doc>
+		Removes the first element of the list and
+		returns it or simply returns null if the
+		list is empty.
+	</haxe_doc>
+		</pop>
+		<isEmpty public="1" set="method" line="112">
+			<f a=""><e path="Bool"/></f>
+			<haxe_doc>
+		Tells if a list is empty.
+	</haxe_doc>
+		</isEmpty>
+		<clear public="1" set="method" line="119">
+			<f a=""><e path="Void"/></f>
+			<haxe_doc>
+		Makes the list empty.
+	</haxe_doc>
+		</clear>
+		<remove public="1" set="method" line="129">
+			<f a="v">
+				<c path="List.T"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Remove the first element that is [== v] from the list.
+		Returns [true] if an element was removed, [false] otherwise.
+	</haxe_doc>
+		</remove>
+		<iterator public="1" set="method" line="152">
+			<f a=""><t path="Iterator"><c path="List.T"/></t></f>
+			<haxe_doc>
+		Returns an iterator on the elements of the list.
+	</haxe_doc>
+		</iterator>
+		<toString public="1" set="method" line="173">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns a displayable representation of the String.
+	</haxe_doc>
+		</toString>
+		<join public="1" set="method" line="193">
+			<f a="sep">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Join the element of the list by using the separator [sep].
+	</haxe_doc>
+		</join>
+		<filter public="1" set="method" line="212">
+			<f a="f">
+				<f a="">
+					<c path="List.T"/>
+					<e path="Bool"/>
+				</f>
+				<c path="List"><c path="List.T"/></c>
+			</f>
+			<haxe_doc>
+		Returns a list filtered with [f]. The returned list
+		will contain all elements [x] for which [f(x) = true].
+	</haxe_doc>
+		</filter>
+		<map public="1" params="X" set="method" line="228">
+			<f a="f">
+				<f a="">
+					<c path="List.T"/>
+					<c path="map.X"/>
+				</f>
+				<c path="List"><c path="map.X"/></c>
+			</f>
+			<haxe_doc>
+		Returns a new list where all elements have been converted
+		by the function [f].
+	</haxe_doc>
+		</map>
+		<new public="1" set="method" line="44">
+			<f a=""><e path="Void"/></f>
+			<haxe_doc>
+		Creates a new empty list.
+	</haxe_doc>
+		</new>
+		<haxe_doc>
+	A linked-list of elements. The list is composed of two-elements arrays
+	that are chained together. It's optimized so that adding or removing an
+	element doesn't imply to copy the whole array content everytime.
+</haxe_doc>
+	</class>
+	<class path="Class" params="T" file="C:\Motion-Twin\haxe/std/Class.hx" extern="1"><haxe_doc>
+	An abstract type that represents a Class.
+	See [Type] for the haXe Reflection API.
+</haxe_doc></class>
+	<class path="EReg" params="" file="C:\Motion-Twin\haxe/std/cpp/_std/EReg.hx">
+		<regexp_new_options line="157" static="1"><f a=":">
+	<c path="String"/>
+	<c path="String"/>
+	<d/>
+</f></regexp_new_options>
+		<regexp_match line="158" static="1"><f a=":::">
+	<d/>
+	<c path="String"/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<d/>
+</f></regexp_match>
+		<regexp_matched line="159" static="1"><f a=":">
+	<d/>
+	<c path="Int"/>
+	<d/>
+</f></regexp_matched>
+		<regexp_matched_pos line="160" static="1"><f a=":">
+	<d/>
+	<c path="Int"/>
+	<a>
+		<pos><c path="Int"/></pos>
+		<len><c path="Int"/></len>
+	</a>
+</f></regexp_matched_pos>
+		<r><d/></r>
+		<last><c path="String"/></last>
+		<global><e path="Bool"/></global>
+		<match public="1" set="method" line="40">
+			<f a="s">
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if the regular expression matches the String.
+		Updates the internal state accordingly.
+	</haxe_doc>
+		</match>
+		<matched public="1" set="method" line="49">
+			<f a="n">
+				<c path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Returns a matched group or throw an expection if there
+		is no such group. If [n = 0], the whole matched substring
+		is returned.
+	</haxe_doc>
+		</matched>
+		<matchedLeft public="1" set="method" line="54">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns the part of the string that was as the left of
+		of the matched substring.
+	</haxe_doc>
+		</matchedLeft>
+		<matchedRight public="1" set="method" line="59">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns the part of the string that was at the right of
+		of the matched substring.
+	</haxe_doc>
+		</matchedRight>
+		<matchedPos public="1" set="method" line="65">
+			<f a=""><a>
+	<pos><c path="Int"/></pos>
+	<len><c path="Int"/></len>
+</a></f>
+			<haxe_doc>
+		Returns the position of the matched substring within the
+		original matched string.
+	</haxe_doc>
+		</matchedPos>
+		<split public="1" set="method" line="69">
+			<f a="s">
+				<c path="String"/>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>
+		Split a string by using the regular expression to match
+		the separators.
+	</haxe_doc>
+		</split>
+		<replace public="1" set="method" line="93">
+			<f a="s:by">
+				<c path="String"/>
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Replaces a pattern by another string. The [by] format can
+		contains [$1] to [$9] that will correspond to groups matched
+		while replacing. [$$] means the [$] character.
+	</haxe_doc>
+		</replace>
+		<customReplace public="1" set="method" line="144">
+			<f a="s:f">
+				<c path="String"/>
+				<f a="">
+					<c path="EReg"/>
+					<c path="String"/>
+				</f>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		For each occurence of the pattern in the string [s], the function [f] is called and
+		can return the string that needs to be replaced. All occurences are matched anyway,
+		and setting the [g] flag might cause some incorrect behavior on some platforms.
+	</haxe_doc>
+		</customReplace>
+		<new public="1" set="method" line="32"><f a="r:opt">
+	<c path="String"/>
+	<c path="String"/>
+	<e path="Void"/>
+</f></new>
+		<haxe_doc>
+	Regular expressions are a way to find regular patterns into
+	Strings. Have a look at the tutorial on haXe website to learn
+	how to use them.
+</haxe_doc>
+	</class>
+	<class path="Reflect" params="" file="C:\Motion-Twin\haxe/std/cpp/_std/Reflect.hx">
+		<hasField public="1" set="method" line="29" static="1">
+			<f a="o:field">
+				<d/>
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if an object has a field set. This doesn't take into account the object prototype (class methods).
+	</haxe_doc>
+		</hasField>
+		<field public="1" set="method" line="33" static="1">
+			<f a="o:field">
+				<d/>
+				<c path="String"/>
+				<d/>
+			</f>
+			<haxe_doc>
+		Returns the field of an object, or null if [o] is not an object or doesn't have this field.
+	</haxe_doc>
+		</field>
+		<setField public="1" get="inline" set="null" line="37" static="1">
+			<f a="o:field:value">
+				<d/>
+				<c path="String"/>
+				<d/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Set an object field value.
+	</haxe_doc>
+		</setField>
+		<callMethod public="1" set="method" line="42" static="1">
+			<f a="o:func:args">
+				<d/>
+				<d/>
+				<c path="Array"><d/></c>
+				<d/>
+			</f>
+			<haxe_doc>
+		Call a method with the given object and arguments.
+	</haxe_doc>
+		</callMethod>
+		<fields public="1" set="method" line="49" static="1">
+			<f a="o">
+				<d/>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>
+		Returns the list of fields of an object, excluding its prototype (class methods).
+	</haxe_doc>
+		</fields>
+		<isFunction public="1" set="method" line="56" static="1">
+			<f a="f">
+				<d/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if a value is a function or not.
+	</haxe_doc>
+		</isFunction>
+		<compare public="1" params="T" set="method" line="60" static="1">
+			<f a="a:b">
+				<c path="compare.T"/>
+				<c path="compare.T"/>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>
+		Generic comparison function, does not work for methods, see [compareMethods]
+	</haxe_doc>
+		</compare>
+		<compareMethods public="1" set="method" line="64" static="1">
+			<f a="f1:f2">
+				<d/>
+				<d/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Compare two methods closures. Returns true if it's the same method of the same instance.
+	</haxe_doc>
+		</compareMethods>
+		<isObject public="1" set="method" line="72" static="1">
+			<f a="v">
+				<d/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if a value is an object or not.
+
+	</haxe_doc>
+		</isObject>
+		<deleteField public="1" set="method" line="79" static="1">
+			<f a="o:f">
+				<d/>
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Delete an object field.
+	</haxe_doc>
+		</deleteField>
+		<copy public="1" params="T" set="method" line="84" static="1">
+			<f a="o">
+				<c path="copy.T"/>
+				<c path="copy.T"/>
+			</f>
+			<haxe_doc>
+		Make a copy of the fields of an object.
+	</haxe_doc>
+		</copy>
+		<makeVarArgs public="1" set="method" line="95" static="1">
+			<f a="f">
+				<f a="">
+					<c path="Array"><d/></c>
+					<d/>
+				</f>
+				<d/>
+			</f>
+			<haxe_doc>
+		Transform a function taking an array of arguments into a function that can
+		be called with any number of arguments.
+	</haxe_doc>
+		</makeVarArgs>
+		<haxe_doc>
+	The Reflect API is a way to manipulate values dynamicly through an
+	abstract interface in an untyped manner. Use with care.
+</haxe_doc>
+	</class>
+	<typedef path="haxe.db.Manager" params="T" file="../haxe/db/Manager.hx"><c path="cpp.db.Manager"><c path="haxe.db.Manager.T"/></c></typedef>
+	<typedef path="haxe.db.Connection" params="" file="../haxe/db/Connection.hx"><c path="cpp.db.Connection"/></typedef>
+	<class path="cpp.db.Manager" params="T" file="../cpp/db/Manager.hx">
+		<cnx public="1" set="setConnection" static="1"><c path="cpp.db.Connection"/></cnx>
+		<object_cache line="44" static="1"><c path="Hash"><c path="cpp.db.Object"/></c></object_cache>
+		<init_list line="45" static="1"><c path="List"><c path="cpp.db.Manager"><c path="cpp.db.Object"/></c></c></init_list>
+		<cache_field line="46" static="1"><c path="String"/></cache_field>
+		<no_update line="47" static="1"><d/></no_update>
+		<LOCKS line="48" static="1"><c path="Array"><c path="String"/></c></LOCKS>
+		<KEYWORDS line="49" static="1"><c path="Hash"><e path="Bool"/></c></KEYWORDS>
+		<setConnection set="method" line="58" static="1"><f a="c">
+	<c path="cpp.db.Connection"/>
+	<c path="cpp.db.Connection"/>
+</f></setConnection>
+		<initialize public="1" set="method" line="441" static="1"><f a=""><e path="Void"/></f></initialize>
+		<cleanup public="1" set="method" line="452" static="1"><f a=""><e path="Void"/></f></cleanup>
+		<table_name><c path="String"/></table_name>
+		<table_fields><c path="List"><c path="String"/></c></table_fields>
+		<table_keys><c path="Array"><c path="String"/></c></table_keys>
+		<class_proto><a><prototype><d/></prototype></a></class_proto>
+		<lock_mode><c path="Int"/></lock_mode>
+		<get public="1" set="method" line="115"><f a="id:?lock">
+	<c path="Int"/>
+	<e path="Bool"/>
+	<c path="cpp.db.Manager.T"/>
+</f></get>
+		<getWithKeys public="1" set="method" line="137"><f a="keys:?lock">
+	<a/>
+	<e path="Bool"/>
+	<c path="cpp.db.Manager.T"/>
+</f></getWithKeys>
+		<delete public="1" set="method" line="153"><f a="x">
+	<a/>
+	<e path="Void"/>
+</f></delete>
+		<search public="1" set="method" line="162"><f a="x:?lock">
+	<a/>
+	<e path="Bool"/>
+	<c path="List"><c path="cpp.db.Manager.T"/></c>
+</f></search>
+		<addCondition set="method" line="175"><f a="s:x">
+	<c path="StringBuf"/>
+	<a/>
+	<e path="Void"/>
+</f></addCondition>
+		<all public="1" set="method" line="196"><f a="?lock">
+	<e path="Bool"/>
+	<c path="List"><c path="cpp.db.Manager.T"/></c>
+</f></all>
+		<count public="1" set="method" line="202"><f a="?x">
+	<a/>
+	<c path="Int"/>
+</f></count>
+		<quote public="1" set="method" line="211"><f a="s">
+	<c path="String"/>
+	<c path="String"/>
+</f></quote>
+		<result public="1" set="method" line="215"><f a="sql">
+	<c path="String"/>
+	<d/>
+</f></result>
+		<results public="1" params="T" set="method" line="219"><f a="sql">
+	<c path="String"/>
+	<c path="List"><c path="results.T"/></c>
+</f></results>
+		<doInsert set="method" line="225"><f a="x">
+	<c path="cpp.db.Manager.T"/>
+	<e path="Void"/>
+</f></doInsert>
+		<doUpdate set="method" line="258"><f a="x">
+	<c path="cpp.db.Manager.T"/>
+	<e path="Void"/>
+</f></doUpdate>
+		<doDelete set="method" line="287"><f a="x">
+	<c path="cpp.db.Manager.T"/>
+	<e path="Void"/>
+</f></doDelete>
+		<doSync set="method" line="298"><f a="i">
+	<c path="cpp.db.Manager.T"/>
+	<e path="Void"/>
+</f></doSync>
+		<objectToString set="method" line="314"><f a="it">
+	<c path="cpp.db.Manager.T"/>
+	<c path="String"/>
+</f></objectToString>
+		<cacheObject set="method" line="339"><f a="x:lock">
+	<c path="cpp.db.Manager.T"/>
+	<e path="Bool"/>
+	<e path="Void"/>
+</f></cacheObject>
+		<make set="method" line="347"><f a="x">
+	<c path="cpp.db.Manager.T"/>
+	<e path="Void"/>
+</f></make>
+		<unmake set="method" line="350"><f a="x">
+	<c path="cpp.db.Manager.T"/>
+	<e path="Void"/>
+</f></unmake>
+		<quoteField set="method" line="353"><f a="f">
+	<c path="String"/>
+	<c path="String"/>
+</f></quoteField>
+		<addKeys set="method" line="357"><f a="s:x">
+	<c path="StringBuf"/>
+	<a/>
+	<e path="Void"/>
+</f></addKeys>
+		<execute set="method" line="373"><f a="sql">
+	<c path="String"/>
+	<c path="cpp.db.ResultSet"/>
+</f></execute>
+		<select set="method" line="377"><f a="cond">
+	<c path="String"/>
+	<c path="String"/>
+</f></select>
+		<selectReadOnly set="method" line="387"><f a="cond">
+	<c path="String"/>
+	<c path="String"/>
+</f></selectReadOnly>
+		<object public="1" set="method" line="396"><f a="sql:lock">
+	<c path="String"/>
+	<e path="Bool"/>
+	<c path="cpp.db.Manager.T"/>
+</f></object>
+		<objects public="1" set="method" line="408"><f a="sql:lock">
+	<c path="String"/>
+	<e path="Bool"/>
+	<c path="List"><c path="cpp.db.Manager.T"/></c>
+</f></objects>
+		<getLockMode get="inline" set="null" line="427"><f a=""><c path="String"/></f></getLockMode>
+		<setLockMode public="1" set="method" line="431"><f a="exclusive:readShared">
+	<e path="Bool"/>
+	<e path="Bool"/>
+	<e path="Void"/>
+</f></setLockMode>
+		<dbClass public="1" set="method" line="435"><f a=""><c path="Class"><d/></c></f></dbClass>
+		<initRelation set="method" line="456"><f a="r">
+	<a>
+		<prop><c path="String"/></prop>
+		<manager><c path="cpp.db.Manager"><c path="cpp.db.Object"/></c></manager>
+		<lock><e path="Bool"/></lock>
+		<key><c path="String"/></key>
+	</a>
+	<e path="Void"/>
+</f></initRelation>
+		<makeCacheKey set="method" line="497"><f a="x">
+	<c path="cpp.db.Manager.T"/>
+	<c path="String"/>
+</f></makeCacheKey>
+		<addToCache set="method" line="516"><f a="x">
+	<c path="cpp.db.Manager.T"/>
+	<e path="Void"/>
+</f></addToCache>
+		<removeFromCache set="method" line="520"><f a="x">
+	<c path="cpp.db.Manager.T"/>
+	<e path="Void"/>
+</f></removeFromCache>
+		<getFromCacheKey set="method" line="524"><f a="key">
+	<c path="String"/>
+	<c path="cpp.db.Manager.T"/>
+</f></getFromCacheKey>
+		<getFromCache set="method" line="528"><f a="x:lock">
+	<c path="cpp.db.Manager.T"/>
+	<e path="Bool"/>
+	<c path="cpp.db.Manager.T"/>
+</f></getFromCache>
+		<new public="1" set="method" line="79"><f a="classval">
+	<c path="Class"><c path="cpp.db.Manager.T"/></c>
+	<e path="Void"/>
+</f></new>
+		<haxe_doc>
+	SPOD Manager : the persistent object database manager. See the tutorial on
+	haXe website to learn how to use SPOD.
+</haxe_doc>
+	</class>
+	<class path="StringBuf" params="" file="C:\Motion-Twin\haxe/std/StringBuf.hx">
+		<add public="1" get="inline" set="null" line="46">
+			<f a="x">
+				<d/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Adds the representation of any value to the string buffer.
+	</haxe_doc>
+		</add>
+		<addSub public="1" get="inline" set="null" line="59">
+			<f a="s:pos:?len">
+				<c path="String"/>
+				<c path="Int"/>
+				<c path="Int"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Adds a part of a string to the string buffer.
+	</haxe_doc>
+		</addSub>
+		<addChar public="1" get="inline" set="null" line="75">
+			<f a="c">
+				<c path="Int"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Adds a character to the string buffer.
+	</haxe_doc>
+		</addChar>
+		<toString public="1" get="inline" set="null" line="89">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns the content of the string buffer.
+		The buffer is not emptied by this operation.
+	</haxe_doc>
+		</toString>
+		<b><c path="Array"><d/></c></b>
+		<new public="1" set="method" line="35">
+			<f a=""><e path="Void"/></f>
+			<haxe_doc>
+		Creates a new string buffer.
+	</haxe_doc>
+		</new>
+		<haxe_doc>
+	A String buffer is an efficient way to build a big string by
+	appending small elements together.
+</haxe_doc>
+	</class>
+	<class path="Array" params="T" file="C:\Motion-Twin\haxe/std/Array.hx" extern="1">
+		<length public="1" set="null">
+			<c path="Int"/>
+			<haxe_doc>
+		The length of the Array
+	</haxe_doc>
+		</length>
+		<concat public="1" set="method">
+			<f a="a">
+				<c path="Array"><c path="Array.T"/></c>
+				<c path="Array"><c path="Array.T"/></c>
+			</f>
+			<haxe_doc>
+		Returns a new Array by appending [a] to [this].
+	</haxe_doc>
+		</concat>
+		<join public="1" set="method">
+			<f a="sep">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Returns a representation of an array with [sep] for separating each element.
+	</haxe_doc>
+		</join>
+		<pop public="1" set="method">
+			<f a=""><t path="Null"><c path="Array.T"/></t></f>
+			<haxe_doc>
+		Removes the last element of the array and returns it.
+	</haxe_doc>
+		</pop>
+		<push public="1" set="method">
+			<f a="x">
+				<c path="Array.T"/>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>
+		Adds the element [x] at the end of the array.
+	</haxe_doc>
+		</push>
+		<reverse public="1" set="method">
+			<f a=""><e path="Void"/></f>
+			<haxe_doc>
+		Reverse the order of elements of the Array.
+	</haxe_doc>
+		</reverse>
+		<shift public="1" set="method">
+			<f a=""><t path="Null"><c path="Array.T"/></t></f>
+			<haxe_doc>
+		Removes the first element and returns it.
+	</haxe_doc>
+		</shift>
+		<slice public="1" set="method">
+			<f a="pos:?end">
+				<c path="Int"/>
+				<c path="Int"/>
+				<c path="Array"><c path="Array.T"/></c>
+			</f>
+			<haxe_doc>
+		Copies the range of the array starting at [pos] up to,
+		but not including, [end]. Both [pos] and [end] can be
+		negative to count from the end: -1 is the last item in
+		the array.
+	</haxe_doc>
+		</slice>
+		<sort public="1" set="method">
+			<f a="f">
+				<f a=":">
+					<c path="Array.T"/>
+					<c path="Array.T"/>
+					<c path="Int"/>
+				</f>
+				<e path="Void"/>
+			</f>
+			<haxe_doc><![CDATA[
+		Sort the Array according to the comparison function [f].
+		[f(x,y)] should return [0] if [x == y], [>0] if [x > y]
+		and [<0] if [x < y].
+	]]></haxe_doc>
+		</sort>
+		<splice public="1" set="method">
+			<f a="pos:len">
+				<c path="Int"/>
+				<c path="Int"/>
+				<c path="Array"><c path="Array.T"/></c>
+			</f>
+			<haxe_doc>
+		Removes [len] elements starting from [pos] an returns them.
+	</haxe_doc>
+		</splice>
+		<toString public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns a displayable representation of the Array content.
+	</haxe_doc>
+		</toString>
+		<unshift public="1" set="method">
+			<f a="x">
+				<c path="Array.T"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Adds the element [x] at the start of the array.
+	</haxe_doc>
+		</unshift>
+		<insert public="1" set="method">
+			<f a="pos:x">
+				<c path="Int"/>
+				<c path="Array.T"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Inserts the element [x] at the position [pos].
+		All elements after [pos] are moved one index ahead.
+	</haxe_doc>
+		</insert>
+		<remove public="1" set="method">
+			<f a="x">
+				<c path="Array.T"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Removes the first occurence of [x].
+		Returns false if [x] was not present.
+		Elements are compared by using standard equality.
+	</haxe_doc>
+		</remove>
+		<copy public="1" set="method">
+			<f a=""><c path="Array"><c path="Array.T"/></c></f>
+			<haxe_doc>
+		Returns a copy of the Array. The values are not
+		copied, only the Array structure.
+	</haxe_doc>
+		</copy>
+		<iterator public="1" set="method">
+			<f a=""><t path="Iterator"><t path="Null"><c path="Array.T"/></t></t></f>
+			<haxe_doc>
+		Returns an iterator of the Array values.
+	</haxe_doc>
+		</iterator>
+		<new public="1" set="method">
+			<f a=""><e path="Void"/></f>
+			<haxe_doc>
+		Creates a new Array.
+	</haxe_doc>
+		</new>
+		<haxe_doc>
+	An Array is a storage for values. You can access it using indexes or
+	with its API. On the server side, it's often better to use a [List] which
+	is less memory and CPU consuming, unless you really need indexed access.
+</haxe_doc>
+	</class>
+</haxe>

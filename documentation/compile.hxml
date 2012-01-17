@@ -1,0 +1,6 @@
+-cpp all
+--no-output
+-xml ../haxedoc.xml
+-cp ../
+-lib nme
+ImportAll
