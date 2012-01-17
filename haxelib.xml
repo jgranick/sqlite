@@ -1,6 +1,6 @@
-<project name="sqlite" url="http://www.joshuagranick.com" license="BSD">
+<project name="sqlite" url="http://www.joshuagranick.com" license="MIT">
     <user name="elyon"/>
     <tag v="cpp"/>
     <description>Provides SQLite capabilities for C++ targets</description>
-    <version name="1.04">Added documenation</version>
+    <version name="1.05">Fixed license</version>
 </project>
