@@ -2,5 +2,5 @@
     <user name="elyon"/>
     <tag v="cpp"/>
     <description>Provides SQLite capabilities for C++ targets</description>
-    <version name="1.06">Added "include.nmml" for NME 3.2 support</version>
+    <version name="1.07">Fixed iOS and added BlackBerry support</version>
 </project>
