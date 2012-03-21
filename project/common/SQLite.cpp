@@ -348,4 +348,7 @@ DEFINE_PRIM(sqlite_result_get,2);
 DEFINE_PRIM(sqlite_result_get_int,2);
 DEFINE_PRIM(sqlite_result_get_float,2);
 
+
+extern "C" int sqlite3_register_prims() { return 0; }
+
 /* ************************************************************************ */
