@@ -1,4 +1,4 @@
-<project name="sqlite" url="http://www.joshuagranick.com" license="MIT">
+<project name="sqlite" url="https://github.com/jgranick/sqlite" license="MIT">
     <user name="elyon"/>
     <tag v="cpp"/>
     <description>Provides SQLite capabilities for C++ targets</description>

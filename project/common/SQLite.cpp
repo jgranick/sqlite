@@ -51,7 +51,7 @@ DEFINE_KIND(k_result);
 
 typedef struct _database {
 	sqlite3 *db;
-	value last;
+	sqlite3_stmt *last;
 } database;
 
 typedef struct _result {
@@ -86,7 +86,7 @@ static void sqlite_finalize_result( result *r, int exc ) {
 static void sqlite_free_db( value v ) {
 	database *db = val_db(v);
 	if( db->last != NULL )
-		sqlite_finalize_result(val_result(db->last),0);
+		sqlite3_finalize(db->last);
 	if( sqlite3_close(db->db) != SQLITE_OK ) {
 		// No exception : we shouldn't alloc memory in a finalizer anyway
 	}
@@ -192,9 +192,9 @@ static value sqlite_request( value v, value sql ) {
 	}
 	// changes in an update/delete
 	if( db->last != NULL )
-		sqlite_finalize_result(val_result(db->last),0);
-	db->last = alloc_abstract(k_result,r);
-	return db->last;
+		sqlite3_finalize(db->last);
+	db->last = r->r;
+ 	return alloc_abstract(k_result, r);
 }
 
 /**
@@ -257,7 +257,8 @@ static value sqlite_result_next( value v ) {
 					int size = sqlite3_column_bytes(r->r,i);
 					//f = alloc_empty_string(size);
 					//memcpy(val_string(f),sqlite3_column_blob(r->r,i),size);
-					copy_string ((char*)sqlite3_column_blob(r->r,i), size);
+					//copy_string ((char*)sqlite3_column_blob(r->r,i), size);
+					f = alloc_string_len((char*)sqlite3_column_blob(r->r,i), size);
 					break;
 				}
 			default:
