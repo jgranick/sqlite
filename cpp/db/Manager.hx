@@ -112,7 +112,7 @@ class Manager<T : Object> {
 		init_list.add(cast this);
 	}
 
-	public function get( id : Int, ?lock : Bool ) : T {
+	public function get( id : Null<Int>, ?lock : Bool ) : T {
 		if( lock == null )
 			lock = true;
 		if( table_keys.length != 1 )
@@ -338,8 +338,8 @@ class Manager<T : Object> {
 
 	function cacheObject( x : T, lock : Bool ) {
 		addToCache(x);
-		untyped __dollar__objsetproto(x,class_proto.prototype);
-		Reflect.setField(x,cache_field,untyped __dollar__new(x));
+		//untyped __dollar__objsetproto(x,class_proto.prototype);
+		//Reflect.setField(x,cache_field,untyped __dollar__new(x));
 		if( !lock )
 			x.update = no_update;
 	}
@@ -458,7 +458,7 @@ class Manager<T : Object> {
 		var manager = r.manager;
 		var hprop = "__"+r.prop;
 		var hkey = r.key;
-		var lock = r.lock;
+		var lock:Null<Bool> = r.lock;
 		if( lock == null ) lock = true;
 		if( manager == null || manager.table_keys == null ) throw ("Invalid manager for relation "+table_name+":"+r.prop);
 		if( manager.table_keys.length != 1 ) throw ("Relation "+r.prop+"("+r.key+") on a multiple key table");
@@ -468,7 +468,7 @@ class Manager<T : Object> {
 			var f = Reflect.field(othis,hprop);
 			if( f != null )
 				return f;
-			var id = Reflect.field(othis,hkey);
+			var id:Null<Int> = Reflect.field(othis,hkey);
 			f = manager.get(id,lock);
 			// it's highly possible that in that case the object has been inserted
 			// after we started our transaction : in that case, let's lock it, since
