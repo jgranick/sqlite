@@ -1,0 +1,13 @@
+{
+  "name": "sqlite",
+  "url": "https://github.com/jgranick/sqlite",
+  "license": "MIT",
+  "tags": ["cpp"],
+  "description": "Provides SQLite capabilities for C++ targets",
+  "version": "1.08.0",
+  "releasenote": "GC fix",
+  "contributors": ["elyon"],
+  "dependencies": {
+
+  }
+}
