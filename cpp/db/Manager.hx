@@ -30,6 +30,7 @@ typedef Manager<T : Object> = mt.db.ShardManager<T>;
 
 #else
 
+import haxe.ds.StringMap;
 import Reflect;
 import cpp.db.Connection;
 
@@ -40,14 +41,14 @@ import cpp.db.Connection;
 class Manager<T : Object> {
 
 	/* ----------------------------- STATICS ------------------------------ */
-	public static var cnx(default,setConnection) : Connection;
-	private static var object_cache : Hash<Object> = new Hash();
+	public static var cnx(default,set) : Connection;
+	private static var object_cache : StringMap<Object> = new StringMap();
 	private static var init_list : List<Manager<Object>> = new List();
 	private static var cache_field = "__cache__";
 	private static var no_update : Dynamic = function() { throw "Cannot update not locked object"; }
 	private static var LOCKS = ["","",""];
 	private static var KEYWORDS = {
-		var h = new Hash();
+		var h = new StringMap();
 		for( k in ["read","write","desc","out","group","version","option",
 				"primary","exists","from","key","keys","limit","lock","use",
 				"create","order","range"] )
@@ -55,7 +56,7 @@ class Manager<T : Object> {
 		h;
 	}
 
-	private static function setConnection( c : Connection ) {
+	private static function set_cnx( c : Connection ) {
 		Reflect.setField(Manager,"cnx",c);
 		if( c != null ) {
 			if( c.dbName() == "MySQL" ) {
@@ -450,7 +451,7 @@ class Manager<T : Object> {
 	}
 
 	public static function cleanup() {
-		object_cache = new Hash();
+		object_cache = new StringMap();
 	}
 
 	function initRelation(r : { prop : String, key : String, manager : Manager<Object>, lock : Bool } ) {
